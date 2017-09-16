@@ -2,5 +2,7 @@ module Lib
     ( someFunc
     ) where
 
+import Reader
+
 someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+someFunc = putStrLn "hello there"
