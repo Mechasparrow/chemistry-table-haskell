@@ -5,4 +5,6 @@ module Lib
 import Reader
 
 someFunc :: IO ()
-someFunc = putStrLn "hello there"
+someFunc = do
+  content <- viewFile "hello.txt"
+  putStrLn content

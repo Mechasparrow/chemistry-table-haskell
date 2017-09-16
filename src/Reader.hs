@@ -1,9 +1,12 @@
 module Reader (
-  viewFile
+  viewFile,
+  readJSON
 ) where
 
 import System.Directory
 import System.IO
+
+import qualified Data.ByteString.Lazy as B
 
 showCurrentDir :: IO FilePath
 showCurrentDir = getCurrentDirectory
@@ -18,3 +21,8 @@ viewFile file_name = do
   contents <- hGetContents handle
   forceList contents `seq` hClose handle
   return contents
+
+readJSON :: FilePath -> IO B.ByteString
+readJSON jsonFile = do
+  current_dir <- showCurrentDir
+  B.readFile (current_dir ++ "/data/" ++ jsonFile)
