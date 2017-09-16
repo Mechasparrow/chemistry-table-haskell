@@ -3,5 +3,11 @@
   {
     "name": "Hydrogen",
     "atomic_number": 1
+  },
+
+  {
+    "name": "Helium",
+    "atomic_number": 2
   }
+
 ]
