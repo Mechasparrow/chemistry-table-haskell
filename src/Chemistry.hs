@@ -4,7 +4,8 @@ module Chemistry (
   Element (..),
   getElements,
   getElement,
-  getAtomicNumber
+  getAtomicNumber,
+  getRegularAtomicNumber
 ) where
 
 import Data.Aeson
@@ -31,12 +32,11 @@ getElements = do
     Left err -> error "did not work"
     Right ps -> return ps
 
+getElement :: Int -> IO Element
 getElement atomic_number = do
   list <- (getElements)
-  let item = (list !! atomic_number)
-  return (item)
+  let new_items = [x | x <- list, getRegularAtomicNumber(x) == atomic_number]
+  return (new_items !! 0)
 
-getAtomicNumber :: IO Element -> IO Int
-getAtomicNumber element = do
-  Element {name = _, atomic_number = atomic_number} <- element
-  return atomic_number
+getRegularAtomicNumber :: Element -> Int
+getRegularAtomicNumber element = atomic_number where Element {name = _, atomic_number = atomic_number} = element
