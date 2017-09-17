@@ -4,7 +4,6 @@ module Chemistry (
   Element (..),
   getElements,
   getElement,
-  getAtomicNumber,
   getRegularAtomicNumber
 ) where
 
@@ -26,7 +25,7 @@ instance ToJSON Element
 
 getElements :: IO [Element]
 getElements = do
-  d <- (eitherDecode <$> readJSON("chemistry.json")) :: IO (Either String [Element])
+  d <- (eitherDecode <$> readJSON("elements.json")) :: IO (Either String [Element])
 
   case d of
     Left err -> error "did not work"
@@ -36,7 +35,13 @@ getElement :: Int -> IO Element
 getElement atomic_number = do
   list <- (getElements)
   let new_items = [x | x <- list, getRegularAtomicNumber(x) == atomic_number]
-  return (new_items !! 0)
+  let element_exists = (toInteger $ length new_items) > 0
+  putStrLn (show (element_exists))
+
+  if element_exists then
+    return (new_items !! 0)
+  else
+    error "Sorry that Element does not exist!"
 
 getRegularAtomicNumber :: Element -> Int
 getRegularAtomicNumber element = atomic_number where Element {name = _, atomic_number = atomic_number} = element
