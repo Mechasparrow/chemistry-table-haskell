@@ -1,11 +1,13 @@
 [
   {
     "name": "Hydrogen",
+    "symbol": "H",
     "atomic_number": 1
   },
 
   {
     "name": "Helium",
+    "symbol": "He",
     "atomic_number": 2
   }
 

@@ -17,6 +17,7 @@ import System.IO
 
 data Element = Element {
   name :: String,
+  symbol :: String,
   atomic_number :: Int
 } deriving (Show, Generic)
 
@@ -44,4 +45,4 @@ getElement atomic_number = do
     error "Sorry that Element does not exist!"
 
 getRegularAtomicNumber :: Element -> Int
-getRegularAtomicNumber element = atomic_number where Element {name = _, atomic_number = atomic_number} = element
+getRegularAtomicNumber element = atomic_number where Element {name = _, symbol = _, atomic_number = atomic_number} = element
