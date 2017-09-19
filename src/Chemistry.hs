@@ -18,7 +18,7 @@ import System.IO
 data Element = Element {
   name :: String,
   symbol :: String,
-  atomic_number :: Int
+  number :: Int
 } deriving (Show, Generic)
 
 instance FromJSON Element
@@ -26,7 +26,7 @@ instance ToJSON Element
 
 getElements :: IO [Element]
 getElements = do
-  d <- (eitherDecode <$> readJSON("elements.json")) :: IO (Either String [Element])
+  d <- (eitherDecode <$> readJSON("periodic-table.json")) :: IO (Either String [Element])
 
   case d of
     Left err -> error "did not work"
@@ -45,4 +45,4 @@ getElement atomic_number = do
     error "Sorry that Element does not exist!"
 
 getRegularAtomicNumber :: Element -> Int
-getRegularAtomicNumber element = atomic_number where Element {name = _, symbol = _, atomic_number = atomic_number} = element
+getRegularAtomicNumber element = number where Element {name = _, symbol = _, number = number} = element
