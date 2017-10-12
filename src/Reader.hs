@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -fwarn-missing-signatures #-}
 module Reader (
   viewFile,
   readJSON
@@ -11,6 +12,7 @@ import qualified Data.ByteString.Lazy as B
 showCurrentDir :: IO FilePath
 showCurrentDir = getCurrentDirectory
 
+forceList :: [a] -> ()
 forceList [] = ()
 forceList (x:xs) = forceList xs
 
