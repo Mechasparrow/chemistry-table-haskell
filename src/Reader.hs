@@ -1,8 +1,9 @@
 {-# OPTIONS_GHC -fwarn-missing-signatures #-}
-module Reader (
-  viewFile,
-  readJSON
-) where
+
+module Reader
+  ( viewFile
+  , readJSON
+  ) where
 
 import System.Directory
 import System.IO
