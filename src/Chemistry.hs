@@ -40,6 +40,8 @@ displayElement element = do
   Element {name = name, symbol = symbol, number = number} <- element
   putStrLn
     (name ++ " " ++ "is the element with the Atomic Number of " ++ show number)
+  putStrLn
+    (name ++ " " ++ "is the element with the Atomic Number of " ++ show symbol)
 
 getElement :: Int -> IO Element
 getElement atomic_number = do
