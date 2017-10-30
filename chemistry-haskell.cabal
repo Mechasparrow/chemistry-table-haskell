@@ -1,7 +1,7 @@
 name:                chemistry-haskell
-version:             0.1.0.0
--- synopsis:
--- description:
+version:             0.1.0.1
+synopsis:            atomic number to chemical information 
+description:         json example program that returns info about chemical element when atomic number is supplied
 homepage:            https://github.com/githubuser/chemistry-haskell#readme
 license:             BSD3
 license-file:        LICENSE
