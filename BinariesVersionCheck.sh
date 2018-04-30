@@ -1,3 +1,4 @@
+#!/bin/bash
 ghc --version
 stack --version
 cabal --version

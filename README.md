@@ -7,3 +7,5 @@ builds (and installs) for me with ./stackSeq
 look for executable in
 /home/mikeh/chemistry-table-haskell/.stack-work/install/x86_64-linux/lts-9.4/8.0.2/bin
 
+executes as a public exec  but exepects the json file in a specific relative place !
+
