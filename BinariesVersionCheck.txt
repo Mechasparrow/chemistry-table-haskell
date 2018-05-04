@@ -1,0 +1,7 @@
+The Glorious Glasgow Haskell Compilation System, version 8.2.1
+Version 1.5.1, Git revision b5efd7cb94595fd9b0b4b2afee32958011bc7825 x86_64 hpack-0.18.1
+cabal-install version 2.0.0.0
+compiled using version 2.0.0.2 of the Cabal library 
+HLint v2.0.9, (C) Neil Mitchell 2006-2017
+hindent 5.2.3
+hpack version 0.18.1
