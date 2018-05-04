@@ -21,6 +21,7 @@ data Element = Element
   { name :: String
   , symbol :: String
   , number :: Int
+  , period :: Int
   } deriving (Show, Generic)
 
 instance FromJSON Element
@@ -37,11 +38,13 @@ getElements = do
 
 displayElement :: IO Element -> IO ()
 displayElement element = do
-  Element {name = name, symbol = symbol, number = number} <- element
+  Element {name = name, symbol = symbol, number = number, period = period} <- element
   putStrLn
     (name ++ " " ++ "is the element with the Atomic Number of " ++ show number)
   putStrLn
-    (name ++ " " ++ "is the element with the Atomic Number of " ++ show symbol)
+    (name ++ " " ++ "is the element with the Atomic Symbol of " ++ show symbol)
+  putStrLn
+    (name ++ " " ++ "is the element on the period " ++ show period)
 
 getElement :: Int -> IO Element
 getElement atomic_number = do
@@ -55,4 +58,4 @@ getElement atomic_number = do
 getRegularAtomicNumber :: Element -> Int
 getRegularAtomicNumber element = number
   where
-    Element {name = _, symbol = _, number = number} = element
+    Element {name = _, symbol = _, number = number, period = _} = element
